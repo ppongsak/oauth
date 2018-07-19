@@ -1,6 +1,5 @@
 var express = require('express')
-const path = require('path')
-var routes = require('./routes/routes.js')
+var routes = require('./routes/routes')
 var cookieParser = require('cookie-parser')
 var bodyParser = require('body-parser')
 
@@ -10,6 +9,6 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
 
-routes(app)
+app.use('/', routes)
 
 module.exports = app
