@@ -1,25 +1,20 @@
 const db = require('../configs/mysql')
 
-const getClientsByUsername = (username, password) => {
-    let query = 'SELECT * from oauth_clients'
-    query =
-        query +
-        ' where client_id="' +
-        username +
-        '"' +
-        ' and client_secret="' +
-        password +
-        '"'
+const getClientsByUsername = async (username, password) => {
+  const query = 'SELECT * from user where username=? and password=?'
+  console.log('getClientsByUsername', query)
 
-    return new Promise((resolve, reject) => {
-        db.connection.query(query, function(err, rows) {
-            if (err) {
-                reject(err)
-            }
-
-            return resolve(rows)
-        })
+  return await new Promise((resolve, reject) => {
+    db.connection.query(query, [username, password], function(err, rows) {
+      if (err) {
+        return reject(err)
+      }
+      //console.log('resolve', rows[0])
+      return resolve(rows[0])
     })
+  })
+
+
 }
 
 module.exports = { getClientsByUsername }

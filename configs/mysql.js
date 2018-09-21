@@ -6,9 +6,9 @@ var proxypassword = process.env.PROXY_PASSWORD || 'dev'
 
 var connection = mysql.createConnection({
     host: '127.0.0.1',
-    user: proxyuser,
-    password: proxypassword,
-    database: 'accounts'
+    user: 'root',
+    password: 'root',
+    database: 'wallet'
 })
 
 connection.connect(function(err) {
