@@ -1,30 +1,27 @@
-// const { getClientsByUsername } = require('../../models/oauthClients')
+const { getClientsByUsername } = require('../../models/oauthClients')
 
-const myBasicAuthorizer = async (username, password) => {
-    // const clients = await getClientsByUsername(username, password)
-    // console.log(clients)
+const myBasicAuthorizer = (username, password) => {
+    // query from database
+    let clients = await getClientsByUsername(username, password)
 
-    // var client_id
-    // var client_secret
+    let client_id
+    let client_secret
+
+    console.log(clients)
 
     // if (clients.length != 1) {
-    //     client_id = null
-    //     client_secret = null
+    //     client_id = 'null'
+    //     client_secret = 'null'
     // } else {
     //     client_id = clients[0].client_id
     //     client_secret = clients[0].client_secret
     // }
 
-    // console.log(
-    //     username.startsWith(client_id) && password.startsWith(client_secret)
-    // )
-
-    // if (!(username.startsWith(client_id) && password.startsWith(client_secret)))
-    //     return res.status(400).json({
-    //         status: false
-    //     })
-
-    return username.startsWith('A') && password.startsWith('secret')
+    // clients.then(function(clients) {
+    //     return (
+    //         username.startsWith(client_id) && password.startsWith(client_secret)
+    //     )
+    // })
 }
 
 module.exports = { myBasicAuthorizer }

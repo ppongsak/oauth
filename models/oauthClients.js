@@ -16,7 +16,7 @@ const getClientsByUsername = (username, password) => {
             if (err) {
                 reject(err)
             }
-
+            console.log(rows)
             return resolve(rows)
         })
     })
