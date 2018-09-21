@@ -12,7 +12,7 @@ const getClientsByUsername = (username, password) => {
         '"'
 
     return new Promise((resolve, reject) => {
-        db.connection.query(query, function(err, rows, results) {
+        db.connection.query(query, function(err, rows) {
             if (err) {
                 reject(err)
             }

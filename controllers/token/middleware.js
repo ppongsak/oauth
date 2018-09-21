@@ -1,7 +1,8 @@
-const { getClientsByUsername } = require('../../models/oauthClients')
+// const { getClientsByUsername } = require('../../models/oauthClients')
 
 const myBasicAuthorizer = async (username, password) => {
-    const clients = await getClientsByUsername(username, password)
+    // const clients = await getClientsByUsername(username, password)
+    // console.log(clients)
 
     // var client_id
     // var client_secret
