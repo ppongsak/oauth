@@ -10,6 +10,8 @@ const index = (req, res) => {
 }
 
 const store = (req, res) => {
+    console.log(req.body)
+
     return res.json({
         status: true,
         data: {
