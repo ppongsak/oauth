@@ -6,7 +6,7 @@ const { index, store } = require('./token')
 const { myBasicAuthorizer } = require('./middleware')
 const basicAuth = require('express-basic-auth')
 
-router.use(basicAuth({ authorizer: myBasicAuthorizer }))
+router.use(basicAuth({ authorizer: myBasicAuthorizer , authorizeAsync :true }))
 
 router.get('/', index)
 router.post('/', store)
