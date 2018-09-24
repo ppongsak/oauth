@@ -13,9 +13,9 @@ const { genToken } = require('./generate')
 }
  */
 
-const store = (req, res) => {
-    let token = genToken(req)
-    // console.log(token)
+const store = async (req, res) => {
+    let token = await genToken(req)
+    console.log(token)
     return res.json({ status: true, data: { message: 'ok' } })
 }
 
