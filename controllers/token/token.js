@@ -1,4 +1,4 @@
-const { genToken } = require('./generate')
+const { generateToken } = require('../../lib/generate')
 /**
  * 
  * generate token
@@ -14,9 +14,19 @@ const { genToken } = require('./generate')
  */
 
 const store = async (req, res) => {
-    let token = await genToken(req)
-    console.log(token)
-    return res.json({ status: true, data: { message: 'ok' } })
+    let token = await generateToken(req, res)
+
+    return res.status(201).json({
+        success: true,
+        message: 'created',
+        data: {
+            access_token: token,
+            token_type: 'bearer',
+            expires_in: 60,
+            refresh_token: 'refresh_token',
+            scope: 'scope'
+        }
+    })
 }
 
 const update = (req, res) => {

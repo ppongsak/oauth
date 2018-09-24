@@ -7,6 +7,8 @@
     },
     "author": "pongsak prabparn <pongsak@rebatemango.com>",
     "dependencies": {
+        "base-64": "^0.1.0",
+        "bcrypt": "^3.0.1",
         "body-parser": "^1.13.3",
         "celebrate": "^8.0.2",
         "client-oauth2": "^4.2.1",
